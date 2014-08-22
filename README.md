@@ -2,11 +2,11 @@ This is the test runner plugin for CppUTest (http://www.cpputest.org) with Eclip
 
 HOW TO INSTALL
 
-1. Create directory "<YOUR_PATH_TO_ECLIPSE/eclipse/dropins/CppUTest".
+1. Create directory "<YOUR_PATH_TO_ECLIPSE>/eclipse/dropins/CppUTest".
 
 2. In this repository, change into the directory   "org.eclipse.cdt.testrunner.cpputest".
 
-3. Copy the following artifacts from there to "<YOUR_PATH_TO_ECLIPSE/eclipse/dropins/CppUTest":
+3. Copy the following artifacts from there to "<YOUR_PATH_TO_ECLIPSE>/eclipse/dropins/CppUTest":
 
   bin/org/           -->      org/
   META-INF/
