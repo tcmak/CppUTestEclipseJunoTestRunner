@@ -107,6 +107,28 @@ public class CppUTestStdOutputParserTest {
 	}
 	
 	@Test
+	public void summaryOKNotMistakenAsTest() throws TestingException {
+		String testOutput = "OK (1 tests, 1 ran, 1 checks, 0 ignored, 0 filtered out, 1 ms)";
+		InputStream stubInputStream = IOUtils.toInputStream(testOutput);
+		
+		(new CppUTestRunnerProvider()).run(mockModelUpdater, stubInputStream);
+		
+		verify(mockModelUpdater).exitTestSuite();
+		verifyNoMoreInteractions(mockModelUpdater);
+	}
+	
+	@Test
+	public void summaryErrorsNotMistakenAsTest() throws TestingException {
+		String testOutput = "Errors (1 failures, 1 tests, 1 ran, 1 checks, 0 ignored, 0 filtered out, 1 ms)";
+		InputStream stubInputStream = IOUtils.toInputStream(testOutput);
+		
+		(new CppUTestRunnerProvider()).run(mockModelUpdater, stubInputStream);
+		
+		verify(mockModelUpdater).exitTestSuite();
+		verifyNoMoreInteractions(mockModelUpdater);
+	}
+	
+	@Test
 	public void severalTestsInSuite() throws TestingException {
 		String testOutput = 
 		"TEST(" + testGroupName + ", FillEmptyThenPrint) - 0 ms\n" + 
