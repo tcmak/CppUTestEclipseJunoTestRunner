@@ -8,10 +8,10 @@ HOW TO INSTALL
 
 3. Copy the following artifacts from there to "<YOUR_PATH_TO_ECLIPSE>/eclipse/dropins/CppUTest":
 
-  bin/org/           -->      org/
-  META-INF/
-  plugin.properties
-  plugin.xml
+  bin/org/  -->  org/  
+  META-INF/  
+  plugin.properties  
+  plugin.xml  
 
   You must copy "bin/org/" to "org/" and not to "bin/org/" !
 
