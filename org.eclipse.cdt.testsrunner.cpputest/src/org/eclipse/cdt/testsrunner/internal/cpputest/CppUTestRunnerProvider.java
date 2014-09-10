@@ -13,28 +13,19 @@ import org.eclipse.cdt.testsrunner.model.TestingException;
 public class CppUTestRunnerProvider implements ITestsRunnerProvider{
 
 	@Override
-	/*
-	 * (non-Javadoc)
-	 * CppUTest Only supports matching Test Groups Names and/or Tests Names. 
-	 * Thus this code ignore any input beyond testPaths[0]
-	 * 
-	 * For example:
-	 * testExe -sgFoo runs all tests under test group "Foo"
-	 * testExe -snBar runs all tests whose test name is "Bar"
-	 * testExe -sgFoo -nsBar runs the test "Bar" of test group "Foo" 
-	 * 
-	 */
 	public String[] getAdditionalLaunchParameters(String[][] testAndGroupNames) {
 		if (testAndGroupNames == null || testAndGroupNames.length==0 || testAndGroupNames[0] == null )
 			return getDefaultLaunchParameters().toArray(new String[0]);
 
-		return getComplexLaunchParameters(testAndGroupNames[0]).toArray(new String[0]);
+		return getComplexLaunchParameters(testAndGroupNames).toArray(new String[0]);
 	}
 
-	private List<String> getComplexLaunchParameters(String[] testGroupAndTestName) {
+	private List<String> getComplexLaunchParameters(String[][] testGroupAndTestNames) {
 		List<String> launchParameters = getDefaultLaunchParameters();
-		addGroupNameToLaunchParameters(getGroupName(testGroupAndTestName), launchParameters);
-		addTestNameToLaunchParameters(getTestName(testGroupAndTestName), launchParameters);
+		for (String[] testGroupAndTestName : testGroupAndTestNames) {
+			addGroupNameToLaunchParameters(getGroupName(testGroupAndTestName), launchParameters);
+			addTestNameToLaunchParameters(getTestName(testGroupAndTestName), launchParameters);
+		}
 		return launchParameters;
 	}
 

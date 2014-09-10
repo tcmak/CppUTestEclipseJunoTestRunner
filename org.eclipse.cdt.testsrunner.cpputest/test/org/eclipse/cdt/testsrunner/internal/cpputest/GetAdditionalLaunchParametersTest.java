@@ -62,4 +62,26 @@ public class GetAdditionalLaunchParametersTest {
 		assertEquals("-snTest", result[result.length-1]);
 	}
 
+	@Test
+	public void shouldSeveralTestsAndGroups() {
+		String[][] groupAndTestCombinations = new String[][] {
+				{ "Group1", "MyTest" },
+				{ "Group1", "YourTest" },				
+				{ "Group2", "FooTest" }				
+		};
+
+		String[] result;
+		
+		result= testRunner.getAdditionalLaunchParameters(groupAndTestCombinations);
+		assertEquals(8, result.length);
+		assertEquals("-r1", result[0]); //$NON-NLS-1$
+		assertEquals("-v", result[1]); //$NON-NLS-1$
+		assertEquals("-sgGroup1", result[2]);
+		assertEquals("-snMyTest", result[3]);
+		assertEquals("-sgGroup1", result[4]);
+		assertEquals("-snYourTest", result[5]);
+		assertEquals("-sgGroup2", result[6]);
+		assertEquals("-snFooTest", result[7]);
+	}
+
 }

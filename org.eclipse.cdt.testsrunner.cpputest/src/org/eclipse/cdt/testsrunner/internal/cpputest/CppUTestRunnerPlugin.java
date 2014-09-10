@@ -1,4 +1,3 @@
-
 package org.eclipse.cdt.testsrunner.internal.cpputest;
 
 import org.eclipse.core.runtime.IStatus;
