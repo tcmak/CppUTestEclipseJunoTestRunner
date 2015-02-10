@@ -1,10 +1,10 @@
-This is the test runner plugin for CppUTest (http://www.cpputest.org) with Eclipse Juno CDT Test Runner.
+This is the test runner plugin for CppUTest (http://www.cpputest.org) with Eclipse Juno CDT Test Runner. It works with Kepler and Luna as well.
 
 HOW TO INSTALL
 
 1. Create directory "<YOUR_PATH_TO_ECLIPSE>/eclipse/dropins/CppUTest".
 
-2. In this repository, change into the directory   "org.eclipse.cdt.testrunner.cpputest".
+2. In this repository, change into the directory "org.eclipse.cdt.testrunner.cpputest".
 
 3. Copy the following artifacts from there to "<YOUR_PATH_TO_ECLIPSE>/eclipse/dropins/CppUTest":
 
@@ -21,4 +21,4 @@ Start Eclipse from a command shell with the following command:
 
   Eclipse -clean -console -consoleLog
 
-"CppUTest Runner Tests" should now be selectable as a test runner within Eclipse and successfully run a CppUTest test project.
+"CppUTest Tests Runner" should now be selectable as a test runner within Eclipse and successfully run a CppUTest test project.
